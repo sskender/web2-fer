@@ -1,0 +1,64 @@
+<html>	
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<style>
+		body, h1, h2, h3, h4, h5, h6  {
+		  font-family: Arial, Helvetica, sans-serif;
+		}
+		hr {
+			border-top: 1px dashed red;
+		}
+	</style>
+	<title>Drugi projekt iz Web2</title>
+<body>
+<h1>Drugi projekt</h1>
+
+<hr width="100%" align="left">
+
+<h2>SQL ubacivanje (SQL Injection)</h2>
+
+<p>
+<font size="2"><b>Upute:</b><i>Ovo je tipični primjer SQL ubacivanja. Ništa posebno, ali radi. Poruka je plain text, a PIN skriven kako mora biti. Može se upisati nešto u bazu, a kad se za poruku upiše </i><font style="background-color: yellow;"><b>' OR 1=1 #</b></font> (možete kopirati odavde)<i> onda se detektira SQL ubacivanje kao što je objašnjeno na predavanjima. Sa checkboxom ubacivanje se uključi ili isključi.</i></font>
+</p>
+
+<form action="/web2/action_page1.php" method="post">
+	<input type="checkbox" id="ftoggle1" name="ftoggle1" checked></input><label for="ftoggle1">Ranjivost uključena</label><br><br>
+	<label for="fname">Poruka:</label>
+	<input type="text" id="fname" name="fname" size="50"></input>
+	<label for="pin">PIN:</label>
+	<input type="password" id="pin" name="pin" maxlength="4" size="4"><br><br>
+	<input type="submit" value="Spremi podatke"><br><br>
+</form>
+
+<hr width="100%" align="left">
+
+<h2>XML External Entity (XXE)</h2>
+
+<p>
+<font size="2"><b>Upute:</b><i>Odaberite jednu od dvije XML datoteke: <a href="data.xml">data.xml</a> (normalna) ili <a href="data_bad.xml">data_bad.xml</a> (s ugrađenim JavaScriptom koji dohvaća cookie) i isprobajte... XML datoteke prvo morate downloadirati kod sebe. Sa checkboxom uključite ili isključite ovu ranjivost.</i></font>
+</p>
+
+<form action="/web2/action_page2.php" method="post" enctype="multipart/form-data">	
+	<input type="checkbox" id="ftoggle2" name="ftoggle2" checked></input><label for="ftoggle2">Ranjivost uključena</label><br><br>
+	<label for="fileToUpload">Putanja:</label>
+	<input type="file" id="fileToUpload" name="fileToUpload" size="50"></input><br><br>
+	<input type="submit" value="Unesi XML datoteku"><br><br>
+</form>
+
+<hr width="100%" align="left">
+
+<h2>Nesigurna pohrana osjetljivih podataka (Sensitive Data Exposure)</h2>
+
+<p>
+<font size="2"><b>Upute:</b><i>Osjetljivi podaci se prikazuju ako je ranjivost uključena ili ne prikazuju ako je isključena. Molim vas da uvažite moje rješenje, ja sam shvatio da to tako treba napraviti.</i></font>
+</p>
+
+<form action="/web2/action_page3.php" method="post">	
+	<input type="checkbox" id="ftoggle3" name="ftoggle3" checked></input><label for="ftoggle2">Ranjivost uključena</label><br><br>
+	<input type="submit" value="Prikaži stranicu sa osjetljivim podacima (GDPR)"><br><br>
+</form>
+
+</body>
+</html>
+
+
+
